@@ -56,6 +56,40 @@ To run the application, you simply need to run the `app.py` script in this repos
 ## Contributors 
 
 - [Maya Iuga]([https://github.com/yourusername](https://github.com/maya-a-iuga))
+- Christopher A. Kennedy
+
+## Milestone 1: Set up the Environment
+
+
+## Milestone 2: Version Control
+
+
+## Milestone 3: Containerisation with Docker
+
+
+## Milestone 4: Defiining Networking Services with IaC
+
+
+## Milestone 5: Defining an AKS Cluster with IaC
+
+
+## Milestone 6: Creating an AKS Cluster with IaC
+
+
+## Milestone 7: Kubernetes Deployment to AKS 
+
+
+## Milestone 8: CI/CD Pipleline with Azure DevOps
+
+
+## Milestone 9: AKS Cluster Monitoring
+
+
+## Milestone 10: AKS Integration with Azure Key Vault for Secrets Management
+
+
+
+
 
 ## License
 
