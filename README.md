@@ -141,6 +141,39 @@ To run the application, you simply need to run the `app.py` script in this repos
 
 
 ### Milestone 6: Creating an AKS Cluster with IaC
+- Defining the project main.tf configuration
+   - provider "azurerm" 
+   - module "networking" 
+      - source="./networking-module"
+   - module "aks_cluster" 
+      - source = "./aks-cluster-module"
+- Integrating the network module
+   - module "networking" {
+     - source="./networking-module"
+     - resource_group_name = "aks-rg"
+     - location = "UK South"
+     - vnet_address_space = ["10.0.0.0/16"]
+- Integrating the cluster module
+   - module "aks_cluster" 
+     - source = "./aks-cluster-module"
+     - aks_cluster_name = "terraform-aks-cluster"
+     - cluster_location = "UK South"
+     - dns_prefix = "myaks-project"
+     - kubernetes_version = "1.26.6"
+     - service_principal_client_id = var.client_id
+     - service_principal_secret = var.client_secret
+- Apply the main project configuration
+   - the project was tested using terraform init, terraform plan, and terrafrom apply.
+   - the aks resource group and vnet and subnets were checked and running on Azure
+- Accessing the cluster
+   - the AKS cluster was accessed and checked locally from the command prompt using:
+     - az aks get-credentials --resource-group aks-rg --name terraform-aks-cluster
+     - kubectl get nodes
+        - NAME                              STATUS   ROLES   AGE   VERSION
+        - aks-default-84750897-vmss000000   Ready    agent   16m   v1.26.6
+     -  kubectl get services
+        - NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+        - kubernetes   ClusterIP   10.0.0.1     <none>        443/TCP   18m
 
 
 ### Milestone 7: Kubernetes Deployment to AKS 
