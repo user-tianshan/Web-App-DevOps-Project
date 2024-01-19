@@ -176,8 +176,70 @@ To run the application, you simply need to run the `app.py` script in this repos
         - kubernetes   ClusterIP   10.0.0.1     <none>        443/TCP   18m
 
 
-### Milestone 7: Kubernetes Deployment to AKS 
 
+### Milestone 7: Kubernetes Deployment to AKS 
+- Kubernetes Manifest Definition - Deployment
+   - apiVersion: apps/v1
+   - kind: Deployment
+   - metadata:
+     - name: flask-app-deployment
+   - spec:
+     - replicas: 2
+     - selector:
+        - matchLabels:
+          - app: flask-app
+     - template:
+       - metadata:
+         - labels:
+            - app: flask-app
+       - spec:
+          - containers:
+            - name: mydevops-project
+            - image: 2314sdjafas7/mydevops-project  # application image on docker hub
+            - ports:
+               - containerPort: 5000
+      - strategy:
+        - type: RollingUpdate # maintains application availability
+        - rollingUpdate:
+           - maxUnavailable: 1
+           - maxSurge: 1
+
+- Kubernets Manifest Defintion - Service
+  - apiVersion: v1
+  - kind: Service
+  - metadata:
+    - name: flask-app-service
+  - spec:
+    - selector:
+       - app: flask-app
+    - ports:
+      - protocol: TCP
+      - port: 80 # Port for internal communication within the cluster
+      - targetPort: 5000 # Port exposed by container
+    - type: ClusterIP # internal service within the AKS cluster
+
+- Deploying Kubernetes Manifest to AKS
+   - Following terraform plan, with the AKS cluster running on Azure, a local context was enabled using: 
+     - az aks get-credentials --resource-group aks-rg --name terraform-aks-cluster
+     - kubectl get nodes
+       - NAME                              STATUS   ROLES   AGE     VERSION
+       - aks-default-38133135-vmss000000   Ready    agent   4m11s   v1.26.6
+     - kubectl get services
+       - NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+       - kubernetes   ClusterIP   10.0.0.1     <none>        443/TCP   5m13s
+   - manifest applied and deplyed using:
+      - kubectl apply -f application-manifest.yaml
+
+- Testing and Validating Deployments on AKS
+  - Pods checked using:
+     -  kubectl get pods
+        - NAME                                    READY   STATUS    RESTARTS   AGE
+        - flask-app-deployment-7b69759748-qlrkw   1/1     Running   0          79s
+        - flask-app-deployment-7b69759748-vjdbj   1/1     Running   0          79s
+  - port forwarding initiated using
+     - kubectl port-forward flask-app-deployment-7b69759748-qlrkw 80:5000
+  - cluster accessed locally and application functionality checked at http://127.0.0.1
+       
 
 ### Milestone 8: CI/CD Pipleline with Azure DevOps
 
