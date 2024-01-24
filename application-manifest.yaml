@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: mydevops-project:latest
-          image: 2314sdjafas7/nginx-app:v1
+          image: 2314sdjafas7/azure-devops-project
           ports:
           - containerPort: 5000
   strategy:
