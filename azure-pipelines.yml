@@ -21,8 +21,8 @@ steps:
 - task: KubernetesManifest@1
   inputs:
     action: 'deploy'
-    connectionType: 'azureResourceManager'
-    azureSubscriptionConnection: 'aks-service-connection'
-    azureResourceGroup: 'VisualStudioOnline-C10BF13F577D425BB6E0029965A2011B'
-    kubernetesCluster: 'DevOps-AKS-Cluster'
+    connectionType: 'kubernetesServiceConnection'
+    kubernetesServiceConnection: 'AKS service connection'
     manifests: 'application-manifest.yaml'
+
+
