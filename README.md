@@ -242,6 +242,12 @@ To run the application, you simply need to run the `app.py` script in this repos
        
 
 ### Milestone 8: CI/CD Pipleline with Azure DevOps
+- Pipeline Setup
+- Docker Hub Service Connection
+- Docker Image Build and Push
+- AKS Service Connection
+- Deployment to AKS Cluster
+- Testing and Validation
 
 
 ### Milestone 9: AKS Cluster Monitoring
