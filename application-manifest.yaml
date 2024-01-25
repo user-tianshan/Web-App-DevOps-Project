@@ -13,7 +13,7 @@ spec:
         app: flask-app
     spec:
       containers:
-        - name: azure_devops_project:latest
+        - name: azuredevopsproject:latest
           image: 2314sdjafas7/azure-devops-project
           ports:
           - containerPort: 5000
