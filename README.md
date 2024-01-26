@@ -261,8 +261,19 @@ To run the application, you simply need to run the `app.py` script in this repos
           - tags: 'latest'
    - trigger: - main ensures that the pipeline automatically runs each time there is a push to the main
 - AKS Service Connection
+   - The AKS service connection was built using the project settings, service connection, kubernetes, option
+   - This method requires an existing AKS cluster.
 - Deployment to AKS Cluster
+   - the Deploy to Kubernetes option from the task list was used to generate the deployment to AKS cluster using the AKS service connection and deploy action from the list, and added to the pipeline yaml file.
+        - task: KubernetesManifest@1
+           - inputs:
+              - action: 'deploy'
+              - connectionType: 'kubernetesServiceConnection'
+              - kubernetesServiceConnection: 'AKS service connection'
+              - manifests: 'application-manifest.yaml'
 - Testing and Validation
+  - The pipeline was run and tested from the command prompt.
+  - 
 
 
 ### Milestone 9: AKS Cluster Monitoring
