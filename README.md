@@ -272,8 +272,26 @@ To run the application, you simply need to run the `app.py` script in this repos
               - kubernetesServiceConnection: 'AKS service connection'
               - manifests: 'application-manifest.yaml'
 - Testing and Validation
-  - The pipeline was run and tested from the command prompt.
-  - 
+  - The pipeline was run and tested locally from the command prompt.
+    - az aks get-credentials --resource-group VisualStudioOnline-C10BF13F577D425BB6E0029965A2011B --name DevOps-AKS-Cluster
+       - Merged "DevOps-AKS-Cluster" as current context in C:\Users\tians\.kube\config
+    - kubectl get nodes
+      - NAME                                STATUS   ROLES   AGE   VERSION
+      - aks-agentpool-22468329-vmss000000   Ready    agent   17h   v1.27.7
+      - aks-agentpool-22468329-vmss000001   Ready    agent   17h   v1.27.7
+      - aks-userpool-22468329-vmss000000    Ready    agent   17h   v1.27.7
+      - aks-userpool-22468329-vmss000001    Ready    agent   17h   v1.27.7
+    - kubectl get services
+      - NAME                TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+      - flask-app-service   ClusterIP   10.0.66.32   <none>        80/TCP    33m
+      - kubernetes          ClusterIP   10.0.0.1     <none>        443/TCP   17h
+    - kubectl get pods
+      -  NAME                                    READY   STATUS    RESTARTS   AGE
+      - flask-app-deployment-57557b989d-rw2zl   1/1     Running   0          15m
+      - flask-app-deployment-57557b989d-v5bvf   1/1     Running   0          15m
+  - port forwarding initiated using:  
+    - kubectl port-forward flask-app-deployment-57557b989d-rw2zl 80:5000
+  - cluster accessed locally and application functionality checked at http://127.0.0.1
 
 
 ### Milestone 9: AKS Cluster Monitoring
