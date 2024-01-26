@@ -242,9 +242,24 @@ To run the application, you simply need to run the `app.py` script in this repos
        
 
 ### Milestone 8: CI/CD Pipleline with Azure DevOps
+- Create new DevOps project
+  - The DevOps project was setup within Azure DevOps as the foundation for the PipeLine. The project name was Azure DevOps Project
 - Pipeline Setup
+   - The source repository was configured as GitHub using the existing project repository on GitHub
+   - A Starter Pipeline template was created from Azure DevOps
 - Docker Hub Service Connection
+   - A personal access token was generated on Docker Hub
+   - A docker service connection was then built and tested from the project settings service connections
 - Docker Image Build and Push
+   - The Docker Build and Push command was selected from the Docker tasks lists and added to the pipeline
+     - task: Docker@2
+        - inputs:
+          - containerRegistry: 'Docker'
+          - repository: '2314sdjafas7/azuredevopsproject'
+          - command: 'buildAndPush'
+          - Dockerfile: '**/Dockerfile'
+          - tags: 'latest'
+   - trigger: - main ensures that the pipeline automatically runs each time there is a push to the main
 - AKS Service Connection
 - Deployment to AKS Cluster
 - Testing and Validation
