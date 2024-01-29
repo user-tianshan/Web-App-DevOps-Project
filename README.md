@@ -229,6 +229,8 @@ To run the application, you simply need to run the `app.py` script in this repos
        - kubernetes   ClusterIP   10.0.0.1     <none>        443/TCP   5m13s
    - manifest applied and deplyed using:
       - kubectl apply -f application-manifest.yaml
+         - deployment.apps/flask-app-deployment created
+         - service/flask-app-service created
 
 - Testing and Validating Deployments on AKS
   - Pods checked using:
