@@ -297,6 +297,34 @@ To run the application, you simply need to run the `app.py` script in this repos
 
 
 ### Milestone 9: AKS Cluster Monitoring
+- Container Insights
+   - Enabled for collecting real-time in-depth performance and diagnostic data.
+- Metrics Explorer Charts
+    - Average Node CPU Usage:
+    - Average Pod Count:
+    - Used Disk Percentage:
+    - Bytes Read and Written per Second:
+- Log Analytics
+   - Average Node CPU Usage Percentage per Minute
+   - Average Node Memory Usage Percentage per Minute:
+   - Pods Counts with Phase:
+   - Find Warning Value in Container Logs:
+      - let FindString = "warning";
+      - ContainerLog 
+      - | where LogEntry has FindString 
+      - |take 100
+   - Monitoring Kubernetes Events:
+      - // Kubernetes events 
+      - // Lists all the Kubernetes events. 
+      - KubeEvents
+      - | where TimeGenerated > ago(7d) 
+      - | where not(isempty(Namespace))
+      - | top 200 by TimeGenerated desc
+- Alert Rules and Alarms
+  - Alert rule to trigger an alarm when the used disk percentage in the AKS cluster exceeds 90%
+     - Check every 5 minutes with loopback period of 15 minutes.
+     - Notifications sent to email address.
+     - Alert rules for CPU usage and memory working set percentage to trigger when they exceed 80%.
 
 
 ### Milestone 10: AKS Integration with Azure Key Vault for Secrets Management
