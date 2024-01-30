@@ -307,21 +307,13 @@ To run the application, you simply need to run the `app.py` script in this repos
     - Bytes Read and Written per Second:
      - ![Screenshot](https://github.com/user-tianshan/aks-terraform/blob/main/chart2.jpg)
 - Log Analytics
-   - Average Node CPU Usage Percentage per Minute
+   - Average Node CPU Usage Percentage per Minute:
    - Average Node Memory Usage Percentage per Minute:
    - Pods Counts with Phase:
    - Find Warning Value in Container Logs:
-      - let FindString = "warning";
-      - ContainerLog 
-      - | where LogEntry has FindString 
-      - |take 100
+      - let FindString = "warning";//Please update term you would like to find in LogEntry here ContainerLog | where LogEntry has FindString |take 100
    - Monitoring Kubernetes Events:
-      - // Kubernetes events 
-      - // Lists all the Kubernetes events. 
-      - KubeEvents
-      - | where TimeGenerated > ago(7d) 
-      - | where not(isempty(Namespace))
-      - | top 200 by TimeGenerated desc
+      - // Kubernetes events // Lists all the Kubernetes events. KubeEvents | where TimeGenerated > ago(7d) | where not(isempty(Namespace)) | top 200 by TimeGenerated desc
 - Alert Rules and Alarms
   - Alert rule to trigger an alarm when the used disk percentage in the AKS cluster exceeds 90%
      - Check every 5 minutes with loopback period of 15 minutes.
