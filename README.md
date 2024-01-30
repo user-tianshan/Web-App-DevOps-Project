@@ -303,7 +303,9 @@ To run the application, you simply need to run the `app.py` script in this repos
     - Average Node CPU Usage:
     - Average Pod Count:
     - Used Disk Percentage:
+     - ![Screenshot](https://github.com/user-tianshan/aks-terraform/blob/main/chart1.jpg)
     - Bytes Read and Written per Second:
+     - ![Screenshot](https://github.com/user-tianshan/aks-terraform/blob/main/chart2.jpg)
 - Log Analytics
    - Average Node CPU Usage Percentage per Minute
    - Average Node Memory Usage Percentage per Minute:
