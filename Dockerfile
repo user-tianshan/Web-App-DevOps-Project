@@ -23,6 +23,11 @@ RUN pip install --upgrade pip setuptools
 
 # TODO: Step 4 - Install Python packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt 
+
+# Code to install Managed Identities for AKS 
+RUN pip install azure-identity
+RUN pip install azure-keyvault-secrets
+
 # TODO: Step 5 - Expose port 
 EXPOSE 5000
 # TODO: Step 6 - Define Startup Command
