@@ -9,6 +9,12 @@ import os
 # Initialise Flask App
 app = Flask(__name__)
 
+
+# Code to Managed Identities 
+from azure.identity import ManagedIdentityCredential
+from azure.keyvault.secrets import SecretClient
+
+
 # database connection 
 server = 'devops-project-server.database.windows.net'
 database = 'orders-db'
