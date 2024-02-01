@@ -3,7 +3,7 @@ FROM python:3.8-slim-buster
 # TODO: Step 2 - Set the working directory in the container
 WORKDIR /app
 # TODO: Step 3 Copy the application files in the container
-COPY . .
+COPY . /app
 # Install system dependencies and ODBC driver
 
 
