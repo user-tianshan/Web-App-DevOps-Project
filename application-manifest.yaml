@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: azure-devops-project
-          image: 2314sdjafas7/azure-devops-project
+          image: 2314sdjafas7/azure-devops-project:latest
           ports:
           - containerPort: 5000
   strategy:
