@@ -9,27 +9,11 @@ import os
 # Initialise Flask App
 app = Flask(__name__)
 
-
-# Code to use Managed Identities 
-from azure.identity import ManagedIdentityCredential
-from azure.keyvault.secrets import SecretClient
-key_vault_url = "https://aks-rg-key-vault.vault.azure.net/"
-credential = ManagedIdentityCredential()
-secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
-database_name = secret_client.get_secret("database-name")
-database = database_name.value
-server_name = secret_client.get_secret("server-name")
-server = server_name.value
-server_password = secret_client.get_secret("server-password")
-password = server_password.value
-server_username = secret_client.get_secret("server-username")
-username = server_username.value
-
 # database connection 
-#server = 'devops-project-server.database.windows.net'
-#database = 'orders-db'
-#username = 'maya'
-#password = 'AiCore1237'
+server = 'devops-project-server.database.windows.net'
+database = 'orders-db'
+username = 'maya'
+password = 'AiCore1237'
 driver= '{ODBC Driver 18 for SQL Server}'
 
 # Create the connection string
@@ -62,7 +46,6 @@ class Order(Base):
     product_quantity = Column('Product Quantity', Integer)
     order_date = Column('Order Date', DateTime)
     shipping_date = Column('Shipping Date', DateTime)
-   
 
 # define routes
 # route to display orders
@@ -102,7 +85,7 @@ def add_order():
     product_quantity = request.form.get('product_quantity')
     order_date = request.form.get('order_date')
     shipping_date = request.form.get('shipping_date')
-
+    
     # Create a session to interact with the database
     session = Session()
 
