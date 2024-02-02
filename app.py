@@ -5,8 +5,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 import pyodbc
 import os
-import azure.identity
-import azure.keyvault.secrets
+#import azure.identity
+#import azure.keyvault.secrets
 
 # Initialise Flask App
 app = Flask(__name__)
