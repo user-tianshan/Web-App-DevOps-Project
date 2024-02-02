@@ -13,8 +13,8 @@ app = Flask(__name__)
 
 
 # Managed Identity
-#from azure.identity import ManagedIdentityCredential
-#from azure.keyvault.secrets import SecretClient
+from azure.identity import ManagedIdentityCredential
+from azure.keyvault.secrets import SecretClient
 #key_vault_url = "https://aks-rg-key-vault2.vault.azure.net/"
 #credential = ManagedIdentityCredential()
 #secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
