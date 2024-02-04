@@ -23,7 +23,7 @@ server_name = secret_client.get_secret("server-name")
 database_name = secret_client.get_secret("database-name")
 server_username = secret_client.get_secret("server-username")
 server_password = secret_client.get_secret("server-password")
-username = server_usewrname.value
+username = server_username.value
 
 
 # database connection 
