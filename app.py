@@ -19,10 +19,12 @@ key_vault_url = "https://aks-rg-key-vault3.vault.azure.net/"
 #credential = ManagedIdentityCredential()
 credential = ManagedIdentityCredential(client_id="6951469a-c389-4319-b25f-1022926fa1ee")
 secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
-#server = secret_client.get_secret("server-name")
-#database = secret_client.get_secret("database-name")
-username = secret_client.get_secret("server-username")
-#password = secret_client.get_secret("server-password")
+server_name = secret_client.get_secret("server-name")
+database_name = secret_client.get_secret("database-name")
+server_username = secret_client.get_secret("server-username")
+server_password = secret_client.get_secret("server-password")
+username = server_usewrname.value
+
 
 # database connection 
 server = 'devops-project-server.database.windows.net'
