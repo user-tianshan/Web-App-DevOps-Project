@@ -16,21 +16,23 @@ app = Flask(__name__)
 from azure.identity import ManagedIdentityCredential
 from azure.keyvault.secrets import SecretClient
 key_vault_url = "https://aks-rg-key-vault3.vault.azure.net/"
-#credential = ManagedIdentityCredential()
 credential = ManagedIdentityCredential(client_id="6951469a-c389-4319-b25f-1022926fa1ee")
 secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
 server_name = secret_client.get_secret("server-name")
 database_name = secret_client.get_secret("database-name")
 server_username = secret_client.get_secret("server-username")
 server_password = secret_client.get_secret("server-password")
+server = server_name.value
+database = database_name.value
 username = server_username.value
+password = server_password.value
 
 
 # database connection 
-server = 'devops-project-server.database.windows.net'
-database = 'orders-db'
+#server = 'devops-project-server.database.windows.net'
+#database = 'orders-db'
 #username = 'maya'
-password = 'AiCore1237'
+#password = 'AiCore1237'
 driver= '{ODBC Driver 18 for SQL Server}'
 
 # Create the connection string
