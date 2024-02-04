@@ -16,8 +16,8 @@ app = Flask(__name__)
 from azure.identity import ManagedIdentityCredential
 from azure.keyvault.secrets import SecretClient
 key_vault_url = "https://aks-rg-key-vault3.vault.azure.net/"
-credential = ManagedIdentityCredential()
-#credential = ManagedIdentityCredential(client_id="6951469a-c389-4319-b25f-1022926fa1ee")
+#credential = ManagedIdentityCredential()
+credential = ManagedIdentityCredential(client_id="6951469a-c389-4319-b25f-1022926fa1ee")
 secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
 #server = secret_client.get_secret("server-name")
 #database = secret_client.get_secret("database-name")
