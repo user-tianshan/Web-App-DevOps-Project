@@ -18,16 +18,17 @@ from azure.keyvault.secrets import SecretClient
 key_vault_url = "https://aks-rg-key-vault3.vault.azure.net/"
 credential = ManagedIdentityCredential()
 secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
-#database_name = secret_client.get_secret("database-name")
-#server_name=secret_client.get_secret("server-name")
-#server_password=secret_client.get_secret("server-password")
-#server_username=secret_client.get_secret("server-username")
+server = secret_client.get_secret("server-name")
+database = secret_client.get_secret("database-name")
+server = secret_client.get_secret("server-name")
+username = secret_client.get_secret("server-username")
+password = secret_client.get_secret("server-password")
 
 # database connection 
-server = 'devops-project-server.database.windows.net'
-database = 'orders-db'
-username = 'maya'
-password = 'AiCore1237'
+#server = 'devops-project-server.database.windows.net'
+#database = 'orders-db'
+#username = 'maya'
+#password = 'AiCore1237'
 driver= '{ODBC Driver 18 for SQL Server}'
 
 # Create the connection string
