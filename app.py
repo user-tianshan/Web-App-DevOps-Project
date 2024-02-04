@@ -27,7 +27,7 @@ username = secret_client.get_secret("server-username")
 # database connection 
 server = 'devops-project-server.database.windows.net'
 database = 'orders-db'
-username = 'maya'
+#username = 'maya'
 password = 'AiCore1237'
 driver= '{ODBC Driver 18 for SQL Server}'
 
