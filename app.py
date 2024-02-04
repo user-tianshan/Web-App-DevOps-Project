@@ -20,13 +20,13 @@ credential = ManagedIdentityCredential()
 secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
 #server = secret_client.get_secret("server-name")
 #database = secret_client.get_secret("database-name")
-#username = secret_client.get_secret("server-username")
+username = secret_client.get_secret("server-username")
 #password = secret_client.get_secret("server-password")
 
 # database connection 
 server = 'devops-project-server.database.windows.net'
 database = 'orders-db'
-username = 'maya'
+#username = 'maya'
 password = 'AiCore1237'
 driver= '{ODBC Driver 18 for SQL Server}'
 
