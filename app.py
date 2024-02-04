@@ -27,7 +27,7 @@ secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
 # database connection 
 server = 'devops-project-server.database.windows.net'
 database = 'orders-db'
-sername = 'maya'
+username = 'maya'
 password = 'AiCore1237'
 driver= '{ODBC Driver 18 for SQL Server}'
 
