@@ -21,7 +21,7 @@ credential = ManagedIdentityCredential(client_id="6951469a-c389-4319-b25f-102292
 secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
 #server = secret_client.get_secret("server-name")
 #database = secret_client.get_secret("database-name")
-username = secret_client.get_secret("server-username")
+#username = secret_client.get_secret("server-username")
 #password = secret_client.get_secret("server-password")
 
 # database connection 
