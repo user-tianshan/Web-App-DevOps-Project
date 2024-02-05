@@ -323,6 +323,11 @@ To run the application, you simply need to run the `app.py` script in this repos
 
 ### Milestone 10: AKS Integration with Azure Key Vault for Secrets Management
 - Azure Key Vault
+   - Key vault created on azure with Role Based Access Control
+     - subscription: Christopher Kennedy DevOps
+     - resource group: aks-rg
+     - key vault name: aks-rg-key-vault
+   - Vault URI: https://aks-rg-key-vault.vault.azure.net/
 - Assigning Key Vault Administrator Role
 - Create Key Vault Secrets
 - Managed Identities for AKS
