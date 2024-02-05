@@ -322,6 +322,13 @@ To run the application, you simply need to run the `app.py` script in this repos
 
 
 ### Milestone 10: AKS Integration with Azure Key Vault for Secrets Management
+- Azure Key Vault
+- Assigning Key Vault Administrator Role
+- Create Key Vault Secrets
+- Managed Identities for AKS
+- Managed Identiy Permissions
+- Modify code for managed identity credentials
+- End-to-End Pipeline testing
 
 
 
