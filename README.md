@@ -331,6 +331,11 @@ To run the application, you simply need to run the `app.py` script in this repos
 - Assigning Key Vault Administrator Role
    - Key Vault Administrator role added from the Access Control(IAM) tab of the key vault home page 
 - Create Key Vault Secrets
+  - Secrets added to the key vault from the Ojects secrets tab:
+    - server-name
+    - database-name
+    - server-username
+    - server-password
 - Managed Identities for AKS
 - Managed Identiy Permissions
 - Modify code for managed identity credentials
