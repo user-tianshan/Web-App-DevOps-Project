@@ -325,7 +325,7 @@ To run the application, you simply need to run the `app.py` script in this repos
   - Alert rule to trigger an alarm when the used disk percentage in the AKS cluster exceeds 90%
      - Check every 5 minutes with loopback period of 15 minutes.
      - Notifications sent to email address.
-     - Alert rules for CPU usage and memory working set percentage to trigger when they exceed 80%.
+     - Alert rules for CPU usage and memory modified to trigger when they exceed 80%.
 
 
 ### Milestone 10: AKS Integration with Azure Key Vault for Secrets Management
@@ -344,7 +344,22 @@ To run the application, you simply need to run the `app.py` script in this repos
     - server-username
     - server-password
 - Managed Identities for AKS
+   - from the command prompt following AZ Login, a local context was enabled for the aks cluster using:
+       - az aks get-credentials --resource-group aks-rg --name terraform-aks-cluster
+   - managed identities enabled using:
+       - az aks update -g aks-rg -n terraform-aks-cluster --enable-managed-identity
+   - identiyyProfile found using:
+      - az aks show --resource-group aks-rg --name terraform-aks-cluster --query identityProfile
+        -  "identityProfile": {
+    "kubeletidentity": {
+      "clientId": "6951469a-c389-4319-b25f-1022926fa1ee",
+      "objectId": "b6473376-862b-49f1-97db-8034347ea176",
+      "resourceId": "/subscriptions/6b90bb59-0e19-41ef-9176-13591e12f8f5/resourcegroups/MC_aks-rg_terraform-aks-cluster_uksouth/providers/Microsoft.ManagedIdentity/userAssignedIdentities/terraform-aks-cluster-agentpool"
+    }
+       - clientId and subscriptionId noted for assigning permissions.
 - Managed Identiy Permissions
+   - permission assigned using:
+      - az role assignment create --role "Key Vault Secrets Officer" --assignee 6951469a-c389-4319-b25f-1022926fa1ee --scope /subscriptions/6b90bb59-0e19-41ef-9176-13591e12f8f5/resourceGroups/aks-rg/providers/Microsoft.KeyVault/vaults/aks-rg-key-vault3
 - Modify code for managed identity credentials
   - managed identity code added to app.py file:
     - import azure.identity
@@ -366,8 +381,9 @@ To run the application, you simply need to run the `app.py` script in this repos
     - azure-identity==1.15.0
     - azure-keyvault-secrets==4.7.0
 - End-to-End Pipeline testing
+   - Pipeline tested without any errors
+   - Project UML diagram
 - ![Screenshot](https://github.com/user-tianshan/aks-terraform/blob/main/diagram.jpg)
-
 
 
 
