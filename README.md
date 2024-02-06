@@ -204,7 +204,7 @@ To run the application, you simply need to run the `app.py` script in this repos
            - maxUnavailable: 1
            - maxSurge: 1
 
-- Kubernets Manifest Defintion - Service
+- Kubernetes Manifest Definition - Service
   - apiVersion: v1
   - kind: Service
   - metadata:
@@ -311,7 +311,7 @@ To run the application, you simply need to run the `app.py` script in this repos
    - Average Node Memory Usage Percentage per Minute:
    - Pods Counts with Phase:
    - Find Warning Value in Container Logs:
-      - let FindString = "warning";//Please update term you would like to find in LogEntry here ContainerLog | where LogEntry has FindString |take 100
+      - let FindString = "warning" | where LogEntry has FindString |take 100
    - Monitoring Kubernetes Events:
       - // Kubernetes events // Lists all the Kubernetes events. KubeEvents | where TimeGenerated > ago(7d) | where not(isempty(Namespace)) | top 200 by TimeGenerated desc
 - Alert Rules and Alarms
@@ -323,15 +323,15 @@ To run the application, you simply need to run the `app.py` script in this repos
 
 ### Milestone 10: AKS Integration with Azure Key Vault for Secrets Management
 - Azure Key Vault
-   - Key vault created on azure with Role Based Access Control
+   - Key vault created on Azure with Role Based Access Control.
      - subscription: Christopher Kennedy DevOps
      - resource group: aks-rg
      - key vault name: aks-rg-key-vault
    - Vault URI: https://aks-rg-key-vault.vault.azure.net/
 - Assigning Key Vault Administrator Role
-   - Key Vault Administrator role added from the Access Control(IAM) tab of the key vault home page 
+   - Key Vault Administrator role added from the Access Control(IAM) tab of the Key Vault home page 
 - Create Key Vault Secrets
-  - Secrets added to the key vault from the Ojects secrets tab:
+  - Secrets added to the Key Vault from the Ojects secrets tab:
     - server-name
     - database-name
     - server-username
@@ -359,7 +359,7 @@ To run the application, you simply need to run the `app.py` script in this repos
     - azure-identity==1.15.0
     - azure-keyvault-secrets==4.7.0
 - End-to-End Pipeline testing
-
+- ![Screenshot](https://github.com/user-tianshan/aks-terraform/blob/main/diagram.jpg)
 
 
 
