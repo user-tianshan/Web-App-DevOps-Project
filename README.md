@@ -59,6 +59,13 @@ To run the application, you simply need to run the `app.py` script in this repos
 - Christopher A. Kennedy
 
 ### Milestone 1: Set up the Environment
+ - Project Environment
+     - GitHub
+     - Visual Studio Code
+     - Azure
+     - Azure DevOps
+     - Terraform
+     - DockerHub
 
 
 ### Milestone 2: Version Control
